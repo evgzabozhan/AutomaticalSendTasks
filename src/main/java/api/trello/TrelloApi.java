@@ -73,7 +73,8 @@ public class TrelloApi {
    /**
     * @return TrelloMap (String, Card[])
     */
-   public Map<String, Card[]> getTrelloMap () {
+   public Map<String, Card[]> getTrelloMap ()
+   {
       Map<String, Card[]> trelloMap = new HashMap<>();
       try {
          for (Board board : getBoardsArray()) {
@@ -90,5 +91,4 @@ public class TrelloApi {
       }
       return trelloMap;
    }
-
 }
