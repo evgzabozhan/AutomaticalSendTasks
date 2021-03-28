@@ -1,6 +1,7 @@
 package api.trello;
 
 import api.google.SheetsApi;
+import application.Main;
 import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -22,7 +23,7 @@ public class TrelloApi {
 
    {
       try {
-         properties.load(new FileInputStream("src/main/resources/config.properties"));
+         properties.load(new FileInputStream(Main.CONFIG_PATH));
       } catch (IOException e) {
          e.printStackTrace();
       }
