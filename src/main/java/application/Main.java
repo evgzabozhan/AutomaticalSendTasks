@@ -1,10 +1,10 @@
 package application;
 
+import api.google.SheetsApi;
 import api.trello.TrelloApi;
 import application.logic.Report;
-
-import java.util.Arrays;
 import java.util.Map;
+
 
 public class Main {
 
@@ -12,6 +12,11 @@ public class Main {
         TrelloApi api = new TrelloApi();
         Report report = new Report();
         Map<String, String> result = report.getReport(api.getTrelloMap());
-        System.out.println(result);
+        SheetsApi sheetsApi = new SheetsApi();
+        if (sheetsApi.setDataToTable(result)) {
+            System.out.println("Программа успешно завершена");
+        } else {
+            System.out.println("Программа завершена с ошибками");
+        }
     }
 }
